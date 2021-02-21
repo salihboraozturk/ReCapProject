@@ -15,7 +15,7 @@ namespace Business.DependencyResolvers.Autofac
     public class AutofacBusinessModule:Module
     {
         protected override void Load(ContainerBuilder builder)
-        {
+        { 
             builder.RegisterType<CarManager>().As<ICarService>().SingleInstance();
             builder.RegisterType<EfCarDal>().As<ICarDal>().SingleInstance();
             builder.RegisterType<BrandManager>().As<IBrandService>().SingleInstance();
