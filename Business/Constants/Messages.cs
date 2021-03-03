@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using Core.Utilities.Security.Jwt;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -77,7 +79,15 @@ namespace Business.Constants
         public static string UserCouldNotListed = "Kullanıcılar Listelenemedi";
         public static string UsersDisplay = "Kullanıcılar görüntülendi.";
         public static string UsersCouldNotDisplay = "Kullanıcılar görüntülenemedi.";
-
-
- }      
+        public static string CarNameExists = "Araç ismi zaten var";
+       
+        
+        
+        public static string UserNotFound="Kullanıcı bulunamadı.";
+        public static string PasswordError = "Şifre hatalı";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string UserAlreadyExists = "Kullanıcı zaten var";
+        public static string UserRegistered = "Kullanıcı başarıyla oluşturuldu.";
+        public static string AccesTokenCreated = "Token oluşturuldu.";
+    }      
 }
