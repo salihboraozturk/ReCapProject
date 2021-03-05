@@ -89,5 +89,14 @@ namespace Business.Constants
         public static string UserAlreadyExists = "Kullanıcı zaten var";
         public static string UserRegistered = "Kullanıcı başarıyla oluşturuldu.";
         public static string AccesTokenCreated = "Token oluşturuldu.";
-    }      
+       
+        
+        public static string CategoryLimitExceded = "Kategori limiti aşıldığı için yeni araç eklenemiyor";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string CarCountOfCategoryError = "Bir kategoride en fazla 10 araç olabilir";
+        public static string CarNameAlreadyExists = "Bu isimde zaten başka bir araç var";
+      
+
+
+    }
 }
