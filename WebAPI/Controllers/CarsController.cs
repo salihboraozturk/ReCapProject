@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
         {
             _iCarService = iCarService;
         }
-        [Authorize(Roles ="car.getall")]
+       // [Authorize(Roles ="car.getall")]
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
@@ -68,7 +68,7 @@ namespace WebAPI.Controllers
             var result = _iCarService.GetCarDetails();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             else
             {

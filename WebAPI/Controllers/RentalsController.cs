@@ -24,7 +24,7 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             else
             {
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetRentalDetails();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             else
             {
