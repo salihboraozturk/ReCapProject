@@ -12,18 +12,19 @@ namespace Core.Utilities.Business
         {
             string extension = Path.GetExtension(fromFile.FileName);
             string newGuid = CreateGuid() + extension;
-            string path =Directory.GetCurrentDirectory()+@"\wwwroot\Images";
+            string fullPath =Directory.GetCurrentDirectory()+@"\wwwroot\Images";
+            string savePath =@"\Images";
 
-            if (!Directory.Exists(path))
+            if (!Directory.Exists(fullPath))
             {
-                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(fullPath);
             }
             string imagePath;
-            using (FileStream fileStream=File.Create(path+"\\"+newGuid))
+            using (FileStream fileStream=File.Create(fullPath + "\\"+newGuid))
             {
                 fromFile.CopyTo(fileStream);
                 fileStream.Flush();
-                imagePath = path + "\\" + newGuid;
+                imagePath = savePath + "\\" + newGuid;
             }
             return imagePath;
         }

@@ -24,7 +24,7 @@ namespace Business.Concrete
 
             if (result!=null)
             {
-                return result;
+                return new ErrorResult();
             }
             
                 carImage.ImagePath = FileHelper.Add(formFile);
@@ -61,10 +61,32 @@ namespace Business.Concrete
             return new SuccessResult();
 
         }
+
+        public IDataResult<List<CarImage>> GetAllByCarId(int carId)
+        {
+
+
+            var getAllbyCarIdResult = _imageDal.GetAll(p => p.CarId == carId);
+            if (getAllbyCarIdResult.Count == 0)
+            {
+                return new SuccessDataResult<List<CarImage>>(new List<CarImage>
+                {
+                    new CarImage
+                    {
+                        Id = -1,
+                        CarId = carId,
+                        Date = DateTime.MinValue,
+                        ImagePath =@"C:\Users\Salih B. ÖZTÜRK\source\repos\ReCapProject\WebAPI\wwwroot\Images\NoImage.jpg"
+                    }
+                }); ;
+            }
+
+            return new SuccessDataResult<List<CarImage>>(getAllbyCarIdResult);
+        }
         private IResult CheckCarImages(int carId)
         {
-            var result = _imageDal.GetAll(c => c.Id == carId).Count;
-            if (result >= 5)
+            var result = _imageDal.GetAll(c => c.CarId == carId).Count;
+            if (result >= 1)
             {
                 return new ErrorResult();
             }

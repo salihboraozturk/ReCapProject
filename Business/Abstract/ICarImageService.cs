@@ -14,6 +14,7 @@ namespace Business.Abstract
         IResult Update(CarImage carImage, IFormFile formFile);
         IDataResult<List<CarImage>> GetImageByCarId(int carId);
         IDataResult<CarImage> GetById(int carId);
+        IDataResult<List<CarImage>> GetAllByCarId(int carId);
 
     }
 }
