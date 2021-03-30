@@ -8,6 +8,7 @@ namespace Business.Constants
 {
     public static class Messages
     {
+        public static string[] ValidImageFileTypes = { ".JPG", ".JPEG", ".PNG", ".TIF", ".TIFF", ".GIF", ".BMP", ".ICO" };
         public static string CarAdded = "Araç Eklendi.";
         public static string CarCouldNotAdded ="Araç Eklenemedi.";
         public static string CarDeleted = "Araç silindi.";
@@ -95,8 +96,22 @@ namespace Business.Constants
         public static string AuthorizationDenied = "Yetkiniz yok.";
         public static string CarCountOfCategoryError = "Bir kategoride en fazla 10 araç olabilir";
         public static string CarNameAlreadyExists = "Bu isimde zaten başka bir araç var";
-      
+        public static string imageLimitExceeded = "Fotoğraf limiti aşıldı.";
 
+        public static string InvalidImageExtension = "Hatalı dosya uzantısı";
 
+        public static string PaymentSucces = "Ödeme başarılı";
+
+        public static string ProfileUpdated = "Profil güncellendi.";
+
+        public static string OldPasswordIsWrong = "Eski şifre yanlış.";
+
+        public static string SuccessChangePassword = "Şifre değiştirme işlemi başarılı";
+
+        public static string PaymentError = "Ödeme başarısız.";
+
+        public static string CardSaveSuccess = "Kart kaydetme işlemi başarılı.";
+
+        public static string FindexUp = "Tebrikler 50 findex puanı kazandınız.";
     }
 }

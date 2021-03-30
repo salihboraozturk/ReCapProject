@@ -40,7 +40,7 @@ namespace Core.Utilities.Security.Jwt
                 issuer: tokenOptions.Issuer,
                 audience: tokenOptions.Audience,
                 expires: _accesTokenExpiration,
-                notBefore: DateTime.Now,
+                notBefore: DateTime.UtcNow,
                 claims: SetClaims(user, operationClaims),
                 signingCredentials: signingCredentials
                 );

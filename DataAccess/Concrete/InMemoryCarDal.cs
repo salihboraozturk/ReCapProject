@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataAccess.Concrete
 {
-    public class InMemoryCarDal : ICarDal
+   /* public class InMemoryCarDal :ICarDal
     {
         List<Car> _car;
 
@@ -47,9 +47,29 @@ namespace DataAccess.Concrete
             throw new NotImplementedException();
         }
 
+        public List<CarDetailDto> GetAllCarDetails()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Car> GetById(int carId)
         {
            return _car.Where(c=>c.CarId==carId).ToList();
+        }
+
+        public List<CarDetailDto> GetCarByBrandId(int brandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarByBranId(int brandId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<CarDetailDto> GetCarByColorId(int colorId)
+        {
+            throw new NotImplementedException();
         }
 
         public CarDetailDto GetCarDetail(int carId)
@@ -66,5 +86,10 @@ namespace DataAccess.Concrete
         {
             Console.WriteLine(car.CarId + "car listede güncellendi");
         }
-    }
+
+        List<CarDetailDto> ICarDal.GetCarDetail(int carId)
+        {
+            throw new NotImplementedException();
+        }
+    }*/
 }

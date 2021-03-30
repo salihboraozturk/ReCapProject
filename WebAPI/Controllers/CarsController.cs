@@ -7,6 +7,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Entities.DTOs;
 
 namespace WebAPI.Controllers
 {
@@ -48,10 +49,10 @@ namespace WebAPI.Controllers
             }
             
         }
-        [HttpGet("getbycolorid")]
-        public IActionResult GetByColorId(int colorId)
+        [HttpGet("getcarbybrandid")]
+        public IActionResult GetCarByBrandId(int brandId)
         {
-            var result = _iCarService.GetCarsByColorId(colorId);
+            var result = _iCarService.GetCarByBrandId(brandId);
             if (result.Success)
             {
                 return Ok(result);
@@ -62,10 +63,37 @@ namespace WebAPI.Controllers
             }
 
         }
-        [HttpGet("getcardetails")]
-        public IActionResult GetCarDetails()
+        [HttpGet("getcarbycolorid")]
+        public IActionResult GetByColorId(int colorId)
         {
-            var result = _iCarService.GetCarDetails();
+            var result = _iCarService.GetCarByColorId(colorId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result.Message);
+            }
+
+        }
+        [HttpGet("getallcardetails")]
+        public IActionResult GetAllCarDetails()
+        {
+            var result = _iCarService.GetAllCarDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result.Message);
+            }
+        }
+        [HttpGet("getcardetail")]
+        public IActionResult GetCarDetail(int carId)
+        {
+            var result = _iCarService.GetCarDetails(carId);
             if (result.Success)
             {
                 return Ok(result);
@@ -92,7 +120,7 @@ namespace WebAPI.Controllers
             var result = _iCarService.Add(car);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             else
             {
@@ -100,7 +128,17 @@ namespace WebAPI.Controllers
             }
 
         }
-        
+        [HttpGet("getcarsdetails")]
+        public IActionResult GetCarsDetails([FromQuery] CarDetailFilterDto filterDto)
+        {
+            var result = _iCarService.GetCarsDetails(filterDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
 
 
 

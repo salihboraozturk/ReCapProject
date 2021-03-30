@@ -24,6 +24,14 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserAdded);
         }
 
+        public IResult CheckFindex(int userId)
+        {
+           var userToCheck = _iUserDal.Get(u=>u.UserId==userId);
+            userToCheck.Findex += 50;
+            Update(userToCheck);
+            return new SuccessResult(Messages.FindexUp);
+        }
+
         public IResult Delete(User user)
         {
             _iUserDal.Delete(user);
@@ -55,6 +63,17 @@ namespace Business.Concrete
         {
             _iUserDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
+        }
+        public IResult UserUpdate(User user)
+        {
+            var userToUpdate = GetUserById(user.UserId).Data;
+            
+            userToUpdate.FirstName = user.FirstName;
+            userToUpdate.LastName = user.LastName;
+            userToUpdate.Email = user.Email;
+            Update(userToUpdate);
+            return new SuccessResult(Messages.ProfileUpdated);
+
         }
     }
 }

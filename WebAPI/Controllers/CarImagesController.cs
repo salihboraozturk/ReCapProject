@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
         [HttpPost("CarImageUpdate")]
         public IActionResult Update([FromForm] CarImage carImage, [FromForm] IFormFile formFile)
@@ -35,7 +35,18 @@ namespace WebAPI.Controllers
             {
                 return Ok(result);
             }
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
+        [HttpGet("getallimagebycarid")]
+        public IActionResult GetAllByCarId(int carId)
+        {
+            var result = _carImageService.GetAllImageByCarId(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }

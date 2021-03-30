@@ -8,6 +8,8 @@ using System.Text;
 using System.Linq;
 using Core.Utilities.Business;
 using Microsoft.AspNetCore.Http;
+using Business.Constants;
+using System.IO;
 
 namespace Business.Concrete
 {
@@ -20,7 +22,8 @@ namespace Business.Concrete
         }
         public IResult Add(CarImage carImage, IFormFile formFile)
         {
-            var result = BusinessRules.Run(CheckCarImages(carImage.CarId));
+            var result = BusinessRules.Run(CheckCarImageCount(carImage.CarId),
+                CheckIfImageExtensionValid(formFile));
 
             if (result!=null)
             {
@@ -62,35 +65,33 @@ namespace Business.Concrete
 
         }
 
-        public IDataResult<List<CarImage>> GetAllByCarId(int carId)
+        public IDataResult<List<CarImage>> GetAllImageByCarId(int carId)
         {
-
-
-            var getAllbyCarIdResult = _imageDal.GetAll(p => p.CarId == carId);
-            if (getAllbyCarIdResult.Count == 0)
-            {
-                return new SuccessDataResult<List<CarImage>>(new List<CarImage>
-                {
-                    new CarImage
-                    {
-                        Id = -1,
-                        CarId = carId,
-                        Date = DateTime.MinValue,
-                        ImagePath =@"C:\Users\Salih B. ÖZTÜRK\source\repos\ReCapProject\WebAPI\wwwroot\Images\NoImage.jpg"
-                    }
-                }); ;
-            }
-
-            return new SuccessDataResult<List<CarImage>>(getAllbyCarIdResult);
+            return new SuccessDataResult<List<CarImage>>(CheckIfCarHaveNoImage(carId));
         }
-        private IResult CheckCarImages(int carId)
+        private List<CarImage> CheckIfCarHaveNoImage(int carId)
         {
-            var result = _imageDal.GetAll(c => c.CarId == carId).Count;
-            if (result >= 1)
-            {
-                return new ErrorResult();
-            }
+            string path = @"\Images\NoImage.jpg";
+            var result = _imageDal.GetAll(c => c.CarId == carId);
+            if (!result.Any())
+                return new List<CarImage> { new CarImage { CarId = carId, ImagePath = path } };
+            return result;
+        }
+        private IResult CheckIfImageExtensionValid(IFormFile file)
+        {
+            bool isValidFileExtension = Messages.ValidImageFileTypes.Any(t => t == Path.GetExtension(file.FileName).ToUpper());
+            if (!isValidFileExtension)
+                return new ErrorResult(Messages.InvalidImageExtension);
             return new SuccessResult();
+        }
+
+        private IResult CheckCarImageCount(int carId)
+        {
+            int result = _imageDal.GetAll(c => c.CarId == carId).Count;
+            if (result >= 5)
+                return new ErrorResult(Messages.imageLimitExceeded);
+            return new SuccessResult();
+
         }
     }
 }

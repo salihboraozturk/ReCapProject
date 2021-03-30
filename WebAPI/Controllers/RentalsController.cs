@@ -63,12 +63,12 @@ namespace WebAPI.Controllers
             var result = _rentalService.Add(rental);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
 
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
 
         }

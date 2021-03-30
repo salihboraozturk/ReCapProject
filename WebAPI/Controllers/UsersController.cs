@@ -25,11 +25,11 @@ namespace WebAPI.Controllers
             var result = _userService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpGet("getuserbyid")]
@@ -37,11 +37,11 @@ namespace WebAPI.Controllers
             var result = _userService.GetUserById(id);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpPost("useradd")]
@@ -50,11 +50,11 @@ namespace WebAPI.Controllers
             var result = _userService.Add(user);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpPost("userdelete")]
@@ -63,11 +63,11 @@ namespace WebAPI.Controllers
             var result = _userService.Add(user);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
             }
         }
         [HttpPost("userupdate")]
@@ -75,11 +75,37 @@ namespace WebAPI.Controllers
             var result = _userService.Update(user);
             if (result.Success)
             {
-                return Ok(result.Message);
+                return Ok(result);
             }
             else
             {
-                return BadRequest(result.Message);
+                return BadRequest(result);
+            }
+        }
+        [HttpPost("userupdateinfo")]
+        public IActionResult UserUpdateInfo(User user)
+        {
+            var result = _userService.UserUpdate(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+        [HttpGet("checkfindex")]
+        public IActionResult CheckFindex(int userId)
+        {
+            var result = _userService.CheckFindex(userId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
             }
         }
     }

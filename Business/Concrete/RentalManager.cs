@@ -20,11 +20,6 @@ namespace Business.Concrete
         
         public IResult Add(Rental rental)
         {
-            var result = _iRentalDal.Get(r=>r.RentalId==rental.RentalId && r.ReturnDate==null);
-            if (result.ReturnDate==null)
-            {
-                return new ErrorResult(Messages.RentalCouldNotAdded);
-            }
             _iRentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAdded);
         }

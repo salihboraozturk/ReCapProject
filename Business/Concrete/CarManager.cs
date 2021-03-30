@@ -28,17 +28,11 @@ namespace Business.Concrete
             _carImageService = carImageService;
         }
         [SecuredOperation("car.add,admin")]
-        [ValidationAspect(typeof(CarValidator))]
-        public IResult Add(Car car)
+        //[ValidationAspect(typeof(CarValidator))]
+        public IDataResult<Car> Add(Car car)
         {
-            var result=BusinessRules.Run(CheckIfCarNameExists(car.CarName));
-            if (result!=null)
-            {
-                return result;
-            }
-            
             _iCarDal.Add(car);
-            return new SuccessResult(Messages.CarAdded);
+            return new SuccessDataResult<Car>(car,Messages.CarAdded);
         }
 
         public IResult AddTransactionalTest(Car car)
@@ -59,10 +53,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_iCarDal.GetAll(), Messages.CarsDisplay);
         }
 
+        public IDataResult<List<CarDetailDto>> GetCarByBrandId(int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetCarByBrandId(brandId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetCarByColorId(colorId));
+        }
+
         public IDataResult<CarDetailImageDto> GetCarDetailImage(int carId)
         {
             var result = _iCarDal.GetCarDetail(carId);
-            var imageResult = _carImageService.GetAllByCarId(carId);
+            var imageResult = _carImageService.GetAllImageByCarId(carId);
             if (result == null || imageResult.Success == false)
             {
                 return new ErrorDataResult<CarDetailImageDto>(Messages.BrandAdded);
@@ -70,16 +74,16 @@ namespace Business.Concrete
 
             var carDetailAndImagesDto = new CarDetailImageDto
             {
-                Car = result,
+                //Car = result,
                 ImagePath = imageResult.Data
             };
 
             return new SuccessDataResult<CarDetailImageDto>(carDetailAndImagesDto);
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetAllCarDetails()
         {
-         return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetCarDetails(), Messages.CarsDisplay);
+         return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetAllCarDetails(), Messages.CarsDisplay);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
@@ -101,6 +105,32 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-     
+        public IDataResult<CarDetailDto> GetCarDetails(int carId)
+        {
+            return new SuccessDataResult<CarDetailDto>(_iCarDal.GetCarDetail(carId));
+        }
+        public IDataResult<List<CarDetailDto>> GetCarsDetails(CarDetailFilterDto filterDto)
+        {
+            //Expression propertyExp,someValue,containsMethodExp,combinedExp;
+            //Expression<Func<Car, bool>> exp = c => true, oldExp;
+            //MethodInfo method;
+            //var parameterExp = Expression.Parameter(typeof(Car), "type");
+            //foreach (PropertyInfo propertyInfo in filterDto.GetType().GetProperties())
+            //{
+            //    if (propertyInfo.GetValue(filterDto,null) != null)
+            //    {
+            //        oldExp = exp;
+            //        propertyExp = Expression.Property(parameterExp, propertyInfo.Name);
+            //        method = typeof(int).GetMethod("Equals", new[] { typeof(int) });
+            //        someValue = Expression.Constant(filterDto.GetType().GetProperty(propertyInfo.Name).GetValue(filterDto, null), typeof(int));
+            //        containsMethodExp = Expression.Call(propertyExp, method, someValue);
+            //        exp = Expression.Lambda<Func<Car, bool>>(containsMethodExp, parameterExp);
+            //        combinedExp = Expression.AndAlso(exp.Body,oldExp.Body);
+            //        exp = Expression.Lambda<Func<Car, bool>>(combinedExp, exp.Parameters[0]);
+            //    }
+            //}
+            return new SuccessDataResult<List<CarDetailDto>>(_iCarDal.GetAllCarDetailsByFilter(filterDto));
+        }
     }
+
 }
