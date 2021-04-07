@@ -10,5 +10,7 @@ namespace Business.Abstract
     {
         IResult Add(Card card);
         IDataResult<List<Card>> GetCardsDetailByUserId(int userId);
+
+        IResult Delete(Card card);
     }
 }

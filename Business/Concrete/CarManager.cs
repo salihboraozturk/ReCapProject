@@ -2,6 +2,7 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns;
 using Core.Utilities.Business;
@@ -28,13 +29,28 @@ namespace Business.Concrete
             _carImageService = carImageService;
         }
         [SecuredOperation("car.add,admin")]
-        //[ValidationAspect(typeof(CarValidator))]
+        [ValidationAspect(typeof(CarValidator))]
         public IDataResult<Car> Add(Car car)
         {
             _iCarDal.Add(car);
             return new SuccessDataResult<Car>(car,Messages.CarAdded);
         }
+        //[SecuredOperation("admin,user")]
+        [CacheRemoveAspect("ICarService.Get")]
+        public IResult Delete(Car car)
+        {
+            _iCarDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
+        }
 
+        [CacheRemoveAspect("ICarService.Get")]
+        [ValidationAspect(typeof(CarValidator))]
+        //[SecuredOperation("admin,user")]
+        public IResult Update(Car car)
+        {
+            _iCarDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
+        }
         public IResult AddTransactionalTest(Car car)
         {
             Add(car);

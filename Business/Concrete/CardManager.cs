@@ -22,6 +22,13 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CardSaveSuccess);
         }
 
+        public IResult Delete(Card card)
+        {
+            _cardDal.Delete(card);
+           return new SuccessResult();
+         
+        }
+
         public IDataResult<List<Card>> GetCardsDetailByUserId(int userId)
         {
             return new SuccessDataResult<List<Card>>(_cardDal.GetAll(c=>c.UserId==userId));
