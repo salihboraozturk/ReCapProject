@@ -16,7 +16,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.DailyPrice).NotEmpty();
             RuleFor(c => c.ModelYear).GreaterThan(1950);
             RuleFor(c => c.DailyPrice).GreaterThanOrEqualTo(1).When(c=>c.BrandId==1);
-            RuleFor(c => c.MinFindex).GreaterThan(0);
+            RuleFor(c => c.MinFindex).GreaterThanOrEqualTo(0);
             RuleFor(c => c.MinFindex).NotEmpty();
             RuleFor(c => c.MinFindex).LessThanOrEqualTo(1900);
             //RuleFor(c => c.CarName).Must(StartsWithA).WithMessage("Ürünler A harfi ile başlamalı.");
