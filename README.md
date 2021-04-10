@@ -33,5 +33,5 @@ This project has been prepared by using layered architecture and considering sol
 </details>
 
 # Setup Project
-<h4>You will need some adjustments to use the project.</h4><br>
+<h4>You will need some adjustments to use the project.</h4>
 <a>Firstly </a>
