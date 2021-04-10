@@ -33,4 +33,4 @@ This project is coded in accordance with solid standards and developed by using 
 
 # Setup Project
 <h4>You will need some adjustments to use the project.</h4>
-<a>Firstly,create tables and check the connection string from <strong> DataAccess > Concrete > EntityFramework > CarContext.cs</strong>.You can run the project after you have made the arrangement for yourself.<strong>SQL QUERY:</strong><a href="https://github.com/salihboraozturk/ReCapProject/blob/master/CarDeneme.sql">.sql</a></a>
+<a>Firstly,create tables and check the connection string from <strong> DataAccess > Concrete > EntityFramework > CarContext.cs</strong>.You can run the project after you have made the arrangement for yourself.<strong>SQL QUERY:</strong><a href="https://github.com/salihboraozturk/ReCapProject/blob/master/CarDeneme.sql">CarDeneme.sql</a></a>
