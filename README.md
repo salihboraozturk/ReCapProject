@@ -1,6 +1,6 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114277364-89bff380-9a33-11eb-905a-de72cb739e80.png"></p>
 <h1 align="center">ReCapProject | Backend</h1>
-<h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4>
+<h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4><br>
 # Presentation
 This project is coded in accordance with solid standards and developed by using layered architecture principles.The backend part of the project was written using Asp.Net Core and supported by Restful architecture.
 
