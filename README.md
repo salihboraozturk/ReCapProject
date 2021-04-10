@@ -3,7 +3,7 @@
 
 # Presentation
 
-This project has been prepared by using layered architecture and considering solid principles.The backend part of the project was written using Asp.Net Core and supported by Restful architecture.
+This project has been developed by using layered architecture and considering solid principles.The backend part of the project was written using Asp.Net Core and supported by Restful architecture.
 
 # About The Project 
 
