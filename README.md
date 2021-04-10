@@ -31,3 +31,6 @@ This project has been prepared by using layered architecture and considering sol
   <li>JSON Web Tokens<strong>(JWT)</strong></li>
 </ul>
 </details>
+
+# Setup Project
+<a>You will need some adjustments to use the project</a>
