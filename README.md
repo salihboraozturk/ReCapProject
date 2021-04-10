@@ -34,4 +34,4 @@ This project has been prepared by using layered architecture and considering sol
 
 # Setup Project
 <h4>You will need some adjustments to use the project.</h4>
-<a>Firstly,create tables and check the connection string from <strong> DataAccess > Concrete > EntityFrameword > CarContext.cs</strong>.</a>
+<a>Firstly,create tables and check the connection string from <strong> DataAccess > Concrete > EntityFrameword > CarContext.cs</strong>.You can run the project after you have made the arrangement for yourself.</a>
