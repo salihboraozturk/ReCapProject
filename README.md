@@ -20,7 +20,7 @@ This project has been developed by using layered architecture and considering so
 </ul>
 </details>
 
-<details>
+<details  open>
  <summary><b>Developing techniques</b>: </summary>
 <br>
 <ul>
