@@ -8,7 +8,7 @@ This project has been prepared by using layered architecture and considering sol
 # About The Project 
 
 <details open>
- <summary><b>Technologiess</b>: </summary>
+ <summary><b>Technologies</b>: </summary>
 <br>
 <ul>
   <li>Asp.Net Core</li>
@@ -20,4 +20,14 @@ This project has been prepared by using layered architecture and considering sol
 </ul>
 </details>
 
-
+<details>
+ <summary><b>Developing techniques</b>: </summary>
+<br>
+<ul>
+  <li>Layered Architecture</li>
+ <li>Object Oriented Programming<strong>(OOP)</strong></li>
+  <li>Aspect Oriented Programming<strong>(AOP)</strong></li>
+  <li>Inversion of Control<strong>(IoC)</strong></li>
+  <li>JSON Web Tokens<strong>(JWT)</strong></li>
+</ul>
+</details>
