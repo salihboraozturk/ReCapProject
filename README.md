@@ -37,3 +37,6 @@ This project is coded in accordance with solid standards and developed by using 
 
 # SQL Schema
 <p align="center"><img src="https://user-images.githubusercontent.com/34316987/114282470-da901600-9a4c-11eb-958a-7ed573d5e458.png"></p>
+
+# Frontend Link
+<h4><a align="center" href="https://github.com/salihboraozturk/ReCapFrontend">ReCapProject | Frontend</a></h4><br>
