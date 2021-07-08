@@ -23,7 +23,7 @@ This project is coded in accordance with solid standards and developed by using 
  <summary><b>Developing techniques</b>: </summary>
 <br>
 <ul>
-  <li>Layered Architecture</li>
+  <li>N-Tier Architecture</li>
  <li>Object Oriented Programming<strong>(OOP)</strong></li>
   <li>Aspect Oriented Programming<strong>(AOP)</strong></li>
   <li>Inversion of Control<strong>(IoC)</strong></li>
