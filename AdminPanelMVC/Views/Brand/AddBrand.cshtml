@@ -1,0 +1,15 @@
+﻿@model Entities.Concrete.Brand
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Marka Ekle</h1>
+<br />
+@using (Html.BeginForm("AddBrand", "Brand", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Marka Adı")
+        @Html.TextBoxFor(x => x.BrandName,new{@class="form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+}

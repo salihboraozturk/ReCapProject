@@ -1,0 +1,16 @@
+﻿@model Entities.Concrete.Brand
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Marka Güncelle</h2>
+@using (Html.BeginForm("EditBrand", "Brand", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x=>x.BrandId,new{@class="form-control"})
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x=>x.BrandName, new { @class = "form-control" })
+        <br/>
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
