@@ -1,0 +1,176 @@
+﻿@using Entities.Concrete
+@model List<Entities.DTOs.CarDetailDto>
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="active nav-link" data-toggle="tab" href="#car">Araç Yönetimi</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#brand">Marka Yönetimi</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#color">Renk Yönetimi</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div id="car" class="tab-pane fade show active">
+        <!DOCTYPE html>
+        <html>
+        <body class="hold-transition sidebar-mini">
+            <!-- Site wrapper -->
+            <!-- Content Header (Page header) -->
+        <!-- Main content -->
+            <section class="content">
+
+                <!-- Default box -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped projects">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%">
+                                        #
+                                    </th>
+                                    <th style="width: 5%">
+                                        Araç 
+                                    </th>
+                                    <th style="width: 5%">
+                                        Marka 
+                                    </th>
+                                    <th style="width: 5%">
+                                        Renk
+                                    </th>
+                                    <th style="width: 5%">
+                                        Günlük Ücret
+                                    </th>
+                                    <th style="width: 5%">
+                                        Yakıt-Vites
+                                    </th>
+                                    <th style="width: 5%">
+                                        Minimum Findex
+                                    </th>
+                                    <th style="width:5%">
+                                        Model Yılı
+                                    </th>
+                                    <th style="width: 5%">
+                                        Durum
+                                    </th>
+                                    <th style="width: 5%">
+                                        Resim Yolu
+                                    </th>
+                                    <th style="width: 50%;float: right">
+                                        İşlemler
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+
+                                    <tr>
+                                        <td>
+                                            @item.CarId
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.CarName
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.BrandName
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.ColorName
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.DailyPrice
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.Description
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.MinFindex
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.ModelYear
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.Status
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a>
+                                                @item.ImagePath.Substring(0,10)
+                                            </a>
+                                        </td>
+                                        <td class="project-actions text-right">
+                                            <a class="btn btn-info btn-sm" href="/Brand/EditBrand/@item.CarId">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Düzenle
+                                            </a>
+                                            <a class="btn btn-danger btn-sm" href="/Brand/DeleteBrand/@item.CarId">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+            </section>
+
+            <!-- ./wrapper -->
+            <!-- jQuery -->
+            <script src="../../plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../../dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="../../dist/js/demo.js"></script>
+        </body>
+    </html>
+    <a href="/Car/AddCar/" class="btn btn-success">Yeni Araç</a>
+
+    </div>
+    <div id="brand" class="tab-pane fade">
+        <h3>Marka Yönetimi</h3>
+        <p>Some content in menu 1.</p>
+    </div>
+    <div id="color" class="tab-pane fade">
+        <h3>Renk Yönetimi</h3>
+        <p>Some content in menu 1.</p>
+    </div>
+</div>

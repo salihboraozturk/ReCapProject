@@ -42,6 +42,10 @@ namespace AdminPanelMVC.Controllers
             var values = carManager.GetAll().Data;
             return View(values);
         }
+        public IActionResult Test2()
+        {
+            return View();
+        }
 
     }
 }
