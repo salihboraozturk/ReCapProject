@@ -2,12 +2,11 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Araç Güncelle</h2>
-@using (Html.BeginForm("EditCar", "Car", FormMethod.Post))
+<h1>Marka Ekle</h1>
+<br />
+@using (Html.BeginForm("AddCar", "Car", FormMethod.Post))
 {
 <div class="form-group">
-    @Html.HiddenFor(x => x.CarId, new { @class = "form-control" })
     @Html.Label("Araç Adı")
     @Html.TextBoxFor(x => x.CarName, new { @class = "form-control" })
     <br />
@@ -29,6 +28,6 @@
     @Html.Label("Model Yılı")
     @Html.TextBoxFor(x => x.ModelYear, new { @class = "form-control" })
     <br />
-    <button class="btn btn-success">Güncelle</button>
+    <button class="btn btn-success">Kaydet</button>
 </div>
 }

@@ -30,6 +30,31 @@ namespace AdminPanelMVC.Controllers
             return View(cars);
         }
         [HttpGet]
+        public ActionResult AddCar()
+        {
+            List<SelectListItem> valueBrand = (from x in _brandService.GetAll().Data
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.BrandName,
+                                                   Value = x.BrandId.ToString()
+                                               }).ToList();
+            List<SelectListItem> valueColor = (from x in _colorService.GetAll().Data
+                                               select new SelectListItem
+                                               {
+                                                   Text = x.ColorName,
+                                                   Value = x.ColorId.ToString()
+                                               }).ToList();
+            ViewBag.vlc = valueColor;
+            ViewBag.vlb = valueBrand;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCar(Car car)
+        {
+            _carService.Add(car);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
         public ActionResult EditCar(int id)
         {
             List<SelectListItem> valueBrand = (from x in _brandService.GetAll().Data
@@ -59,6 +84,7 @@ namespace AdminPanelMVC.Controllers
         {
             var carToDelete = _carService.GetCarById(id).Data;
             var carImageToDelete = _carImageService.GetById(id).Data;
+            if (carImageToDelete != null)
             _carImageService.Delete(carImageToDelete);
             _carService.Delete(carToDelete);
             return RedirectToAction("Index");
