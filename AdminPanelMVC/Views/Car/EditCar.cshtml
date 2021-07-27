@@ -1,0 +1,34 @@
+﻿@model Entities.Concrete.Car
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araç Güncelle</h2>
+@using (Html.BeginForm("EditCar", "Car", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CarId, new { @class = "form-control" })
+    @Html.Label("Araç Adı")
+    @Html.TextBoxFor(x => x.CarName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Renk Adı")
+    @Html.DropDownListFor(x => x.ColorId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" })
+    <br />
+    @Html.Label("Marka Adı")
+    @Html.DropDownListFor(x => x.BrandId, (List<SelectListItem>)ViewBag.vlb, new { @class = "form-control" })
+    <br />
+    @Html.Label("Günlük Ücret")
+    @Html.TextBoxFor(x => x.DailyPrice, new { @class = "form-control" })
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    @Html.Label("Minimum Findex Puanı")
+    @Html.TextBoxFor(x => x.MinFindex, new { @class = "form-control" })
+    <br />
+    @Html.Label("Model Yılı")
+    @Html.TextBoxFor(x => x.ModelYear, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}

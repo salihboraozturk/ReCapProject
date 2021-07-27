@@ -21,12 +21,13 @@
         <body class="hold-transition sidebar-mini">
             <!-- Site wrapper -->
             <!-- Content Header (Page header) -->
-        <!-- Main content -->
+            <!-- Main content -->
+          
             <section class="content">
-
                 <!-- Default box -->
                 <div class="card mt-3">
                     <div class="card-header">
+                        <a href="/Car/AddCar/" style="width:auto" class="btn btn-success"><i class="fas fa-plus"></i></a>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                                 <i class="fas fa-minus"></i>
@@ -44,10 +45,10 @@
                                         #
                                     </th>
                                     <th style="width: 5%">
-                                        Araç 
+                                        Araç
                                     </th>
                                     <th style="width: 5%">
-                                        Marka 
+                                        Marka
                                     </th>
                                     <th style="width: 5%">
                                         Renk
@@ -63,12 +64,6 @@
                                     </th>
                                     <th style="width:5%">
                                         Model Yılı
-                                    </th>
-                                    <th style="width: 5%">
-                                        Durum
-                                    </th>
-                                    <th style="width: 5%">
-                                        Resim Yolu
                                     </th>
                                     <th style="width: 50%;float: right">
                                         İşlemler
@@ -118,23 +113,13 @@
                                                 @item.ModelYear
                                             </a>
                                         </td>
-                                        <td>
-                                            <a>
-                                                @item.Status
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a>
-                                                @item.ImagePath.Substring(0,10)
-                                            </a>
-                                        </td>
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-info btn-sm" href="/Brand/EditBrand/@item.CarId">
+                                            <a class="btn btn-info btn-sm" href="/Car/EditCar/@item.CarId">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Düzenle
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="/Brand/DeleteBrand/@item.CarId">
+                                            <a class="btn btn-danger btn-sm" href="/Car/DeleteCar/@item.CarId">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 Sil
@@ -162,7 +147,7 @@
             <script src="../../dist/js/demo.js"></script>
         </body>
     </html>
-    <a href="/Car/AddCar/" class="btn btn-success">Yeni Araç</a>
+    
 
     </div>
     <div id="brand" class="tab-pane fade">
