@@ -1,0 +1,18 @@
+﻿@model Entities.Concrete.Customer
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Müşteri Ekle</h1>
+<br />
+@using (Html.BeginForm("AddCustomer", "Customer", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Şirket Adı")
+    @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kullanıcı Adı")
+    @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+</div>
+}

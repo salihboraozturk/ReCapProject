@@ -1,0 +1,19 @@
+﻿@model Entities.Concrete.Customer
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araç Güncelle</h2>
+@using (Html.BeginForm("EditCustomer", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.CustomerId, new { @class = "form-control" })
+        @Html.Label("Araç Adı")
+        @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control" })
+        <br />
+        @Html.Label("Renk Adı")
+        @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.vlu, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
