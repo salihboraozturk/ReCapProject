@@ -1,0 +1,16 @@
+﻿@model Entities.Concrete.Color
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Marka Güncelle</h2>
+@using (Html.BeginForm("EditColor", "Color", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ColorId, new { @class = "form-control" })
+        @Html.Label("Renk Adı")
+        @Html.TextBoxFor(x => x.ColorName, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}

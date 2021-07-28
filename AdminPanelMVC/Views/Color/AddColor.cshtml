@@ -1,0 +1,15 @@
+﻿@model Entities.Concrete.Color
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Renk Ekle</h1>
+<br />
+@using (Html.BeginForm("AddColor", "Color", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Renk Adı")
+        @Html.TextBoxFor(x => x.ColorName, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+}

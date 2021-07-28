@@ -1,5 +1,5 @@
 ﻿@using Entities.Concrete
-@model List<Brand>
+@model List<Color>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -18,7 +18,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
-                <a href="/Brand/AddBrand/" class="btn btn-success"><i class="fas fa-plus"></i></a>
+                <a href="/Color/AddColor/" class="btn btn-success"><i class="fas fa-plus"></i></a>
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                         <i class="fas fa-minus"></i>
@@ -33,9 +33,9 @@
                                 #
                             </th>
                             <th style="width: 20%">
-                               Marka Adı
+                                Renk Adı
                             </th>
-                            <th  style="width: 15%;float:right">
+                            <th style="width: 15%;float:right">
                                 İşlemler
                             </th>
                         </tr>
@@ -43,23 +43,23 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                           
+
                             <tr>
                                 <td>
-                                    @item.BrandId
+                                    @item.ColorId
                                 </td>
                                 <td>
                                     <a>
-                                        @item.BrandName
+                                        @item.ColorName
                                     </a>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-info btn-sm" href="/Brand/EditBrand/@item.BrandId">
+                                    <a class="btn btn-info btn-sm" href="/Color/EditColor/@item.ColorId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Brand/DeleteBrand/@item.BrandId">
+                                    <a class="btn btn-danger btn-sm" href="/Color/DeleteColor/@item.ColorId">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil
