@@ -18,7 +18,7 @@ namespace AdminPanelMVC.Controllers
             _brandService = brandService;
             _colorService = colorService;
         }
-        public IActionResult Index()
+        public IActionResult Car()
         {
             var carsDetails = _carService.GetAllCarDetails().Data;
             return View(carsDetails);
