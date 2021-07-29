@@ -12,6 +12,11 @@ using Core.Utilities.Interceptors;
 using DataAccess.Concrete;
 using Core.Utilities.Security.Jwt;
 using Microsoft.AspNetCore.Http;
+using Business.Constants;
+using Core.Entities.Concrete;
+using Core.Utilities.Results;
+using Core.Utilities.Security.Hashing;
+using Entities.DTOs;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -35,7 +40,7 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();
             builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>().SingleInstance();
-            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>();
+            builder.RegisterType<HttpContextAccessor>().As<IHttpContextAccessor>().SingleInstance();
             builder.RegisterType<PaymentManager>().As<IPaymentService>().SingleInstance();
             builder.RegisterType<EfPaymentDal>().As<IPaymentDal>().SingleInstance();
             builder.RegisterType<CardManager>().As<ICardService>().SingleInstance();

@@ -1,0 +1,25 @@
+﻿@model Core.Entities.Concrete.User
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Araç Güncelle</h2>
+@using (Html.BeginForm("EditUser", "User", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.UserId, new { @class = "form-control" })
+    @Html.Label("Adı")
+    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyadı")
+    @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+    <br />
+    @Html.Label("E-Mail")
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    @Html.Label("Findex")
+    @Html.TextBoxFor(x => x.Findex, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</div>
+}

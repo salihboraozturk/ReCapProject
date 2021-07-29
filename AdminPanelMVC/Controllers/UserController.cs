@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,12 +14,24 @@ namespace AdminPanelMVC.Controllers
         private IUserService _userService;
         public UserController(IUserService userService)
         {
-            _userService = userService;   
+            _userService = userService;
         }
         public IActionResult Index()
         {
             var users = _userService.GetAll().Data;
             return View(users);
+        }
+        [HttpGet]
+        public ActionResult EditUser(int id)
+        {
+            var userToUpdate = _userService.GetUserById(id).Data;
+            return View(userToUpdate);
+        }
+        [HttpPost]
+        public ActionResult EditUser(User user)
+        {
+            _userService.UserUpdate(user);
+            return RedirectToAction("Index");
         }
     }
 }

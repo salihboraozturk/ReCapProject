@@ -71,6 +71,7 @@ namespace Business.Concrete
             userToUpdate.FirstName = user.FirstName;
             userToUpdate.LastName = user.LastName;
             userToUpdate.Email = user.Email;
+            userToUpdate.Findex = user.Findex;
             Update(userToUpdate);
             return new SuccessResult(Messages.ProfileUpdated);
 
