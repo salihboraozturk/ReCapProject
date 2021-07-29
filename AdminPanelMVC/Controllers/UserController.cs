@@ -33,5 +33,12 @@ namespace AdminPanelMVC.Controllers
             _userService.UserUpdate(user);
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteUser(int id)
+        {
+            var userToDelete = _userService.GetUserById(id).Data;
+            _userService.Delete(userToDelete);
+            return RedirectToAction("Index");
+
+        }
     }
 }
