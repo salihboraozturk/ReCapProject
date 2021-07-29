@@ -11,10 +11,12 @@ namespace AdminPanelMVC.Controllers
     {
         private ICarService _carService;
         private IBrandService _brandService;
-        public ReportsController(ICarService carService, IBrandService brandService)
+        private IColorService _colorService;
+        public ReportsController(ICarService carService, IBrandService brandService, IColorService colorService)
         {
             _carService = carService;
             _brandService = brandService;
+            _colorService = colorService;
         }
         public IActionResult Index()
         {
@@ -25,6 +27,11 @@ namespace AdminPanelMVC.Controllers
         {
             var brand = _brandService.GetAll().Data;
             return View(brand);
+        }
+        public IActionResult Color()
+        {
+            var color = _colorService.GetAll().Data;
+            return View(color);
         }
     }
 }
