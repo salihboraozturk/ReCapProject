@@ -11,6 +11,7 @@ using DataAccess.Abstract;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using Entities.DTOs;
+using Entities.Models;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -151,6 +152,11 @@ namespace Business.Concrete
         public IDataResult<Car> GetCarById(int id)
         {
             return new SuccessDataResult<Car>(_iCarDal.Get(c=>c.CarId==id));
+        }
+
+        public IDataResult<List<ListCarModel>> GetCarCountGraph()
+        {
+            return new SuccessDataResult<List<ListCarModel>>(_iCarDal.GetCarCountGraph());
         }
     }
 

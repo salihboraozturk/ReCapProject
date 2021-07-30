@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -139,6 +140,23 @@ namespace DataAccess.Concrete.EntityFramework
                              };
                 return result.ToList();
             }
+        }
+
+        public List<ListCarModel> GetCarCountGraph()
+        {
+                using (CarContext context = new CarContext())
+                {
+                    var list = (from review in context.Cars
+                               group review by review.CarName into reviewgroups
+                               select new ListCarModel
+                               {
+                                   Name = reviewgroups.Key,
+                                   Count = reviewgroups.Count()    
+                                                               
+                               }).OrderByDescending(x => x.Count);
+                    return list.ToList();
+                }
+           
         }
     }
 }

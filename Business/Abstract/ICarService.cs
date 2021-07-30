@@ -1,6 +1,7 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Business.Abstract
         IDataResult<CarDetailImageDto> GetCarDetailImage(int carId);
         IResult AddTransactionalTest(Car car);
         IDataResult<List<CarDetailDto>> GetCarsDetails(CarDetailFilterDto filterDto);
+        IDataResult<List<ListCarModel>> GetCarCountGraph();
 
     }
 }
