@@ -24,7 +24,8 @@ namespace Business.Abstract
         IDataResult<CarDetailImageDto> GetCarDetailImage(int carId);
         IResult AddTransactionalTest(Car car);
         IDataResult<List<CarDetailDto>> GetCarsDetails(CarDetailFilterDto filterDto);
-        IDataResult<List<ListCarModel>> GetCarCountGraph();
+        IDataResult<List<ListChartModel>> GetCarCountGraph();
+        IDataResult<List<ListChartModel>> GetBrandCountGraph();
 
     }
 }

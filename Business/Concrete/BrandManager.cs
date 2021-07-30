@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Utilities.Results;
 using Business.Constants;
+using Entities.Models;
 
 namespace Business.Concrete
 {
@@ -39,8 +40,6 @@ namespace Business.Concrete
         {
           return new SuccessDataResult<Brand>(_brandDal.Get(b=>b.BrandId==brandId),Messages.BrandDisplay);
         }
-
-
         public IResult Update(Brand brand)
         {
             _brandDal.Update(brand);

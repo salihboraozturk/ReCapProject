@@ -154,9 +154,14 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_iCarDal.Get(c=>c.CarId==id));
         }
 
-        public IDataResult<List<ListCarModel>> GetCarCountGraph()
+        public IDataResult<List<ListChartModel>> GetCarCountGraph()
         {
-            return new SuccessDataResult<List<ListCarModel>>(_iCarDal.GetCarCountGraph());
+            return new SuccessDataResult<List<ListChartModel>>(_iCarDal.GetCarCountGraph());
+        }
+
+        public IDataResult<List<ListChartModel>> GetBrandCountGraph()
+        {
+            return new SuccessDataResult<List<ListChartModel>>(_iCarDal.GetBrandCountGraph());
         }
     }
 

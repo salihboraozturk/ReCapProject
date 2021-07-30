@@ -25,9 +25,21 @@ namespace AdminPanelMVC.Controllers
         {
             return Json(CarChartList());
         }
-        public List<ListCarModel> CarChartList()
+        public List<ListChartModel> CarChartList()
         {
             return _carService.GetCarCountGraph().Data;
+        }
+        public ActionResult BrandChart()
+        {
+            return View();
+        }
+        public IActionResult BrandChartInitial()
+        {
+            return Json(BrandChartList());
+        }
+        public List<ListChartModel> BrandChartList()
+        {
+            return _carService.GetBrandCountGraph().Data;
         }
     }
 }

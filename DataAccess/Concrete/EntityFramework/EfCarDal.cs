@@ -142,13 +142,13 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<ListCarModel> GetCarCountGraph()
+        public List<ListChartModel> GetCarCountGraph()
         {
                 using (CarContext context = new CarContext())
                 {
                     var list = (from review in context.Cars
                                group review by review.CarName into reviewgroups
-                               select new ListCarModel
+                               select new ListChartModel
                                {
                                    Name = reviewgroups.Key,
                                    Count = reviewgroups.Count()    
@@ -157,6 +157,22 @@ namespace DataAccess.Concrete.EntityFramework
                     return list.ToList();
                 }
            
+        }
+
+        public List<ListChartModel> GetBrandCountGraph()
+        {
+            using (CarContext context = new CarContext())
+            {
+                var list = (from review in context.Cars
+                            group review by review.BrandId into reviewgroups
+                            select new ListChartModel
+                            {
+                                Name = (from brand in context.Brands where brand.BrandId == reviewgroups.Key select brand.BrandName).FirstOrDefault(),
+                                Count = reviewgroups.Count()
+
+                            }).OrderByDescending(x => x.Count);
+                return list.ToList();
+            }
         }
     }
 }
