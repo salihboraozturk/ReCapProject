@@ -163,6 +163,11 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<ListChartModel>>(_iCarDal.GetBrandCountGraph());
         }
+
+        public IDataResult<List<ListChartModel>> GetColorCountGraph()
+        {
+            return new SuccessDataResult<List<ListChartModel>>(_iCarDal.GetColorCountGraph());
+        }
     }
 
 }

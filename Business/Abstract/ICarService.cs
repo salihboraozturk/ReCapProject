@@ -26,6 +26,6 @@ namespace Business.Abstract
         IDataResult<List<CarDetailDto>> GetCarsDetails(CarDetailFilterDto filterDto);
         IDataResult<List<ListChartModel>> GetCarCountGraph();
         IDataResult<List<ListChartModel>> GetBrandCountGraph();
-
+        IDataResult<List<ListChartModel>> GetColorCountGraph();
     }
 }

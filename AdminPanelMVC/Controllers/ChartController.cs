@@ -41,5 +41,17 @@ namespace AdminPanelMVC.Controllers
         {
             return _carService.GetBrandCountGraph().Data;
         }
+        public ActionResult ColorChart()
+        {
+            return View();
+        }
+        public IActionResult ColorChartInitial()
+        {
+            return Json(ColorChartList());
+        }
+        public List<ListChartModel> ColorChartList()
+        {
+            return _carService.GetColorCountGraph().Data;
+        }
     }
 }

@@ -174,6 +174,22 @@ namespace DataAccess.Concrete.EntityFramework
                 return list.ToList();
             }
         }
+
+        public List<ListChartModel> GetColorCountGraph()
+        {
+            using (CarContext context = new CarContext())
+            {
+                var list = (from review in context.Cars
+                            group review by review.ColorId into reviewgroups
+                            select new ListChartModel
+                            {
+                                Name = (from color in context.Colors where color.ColorId == reviewgroups.Key select color.ColorName).FirstOrDefault(),
+                                Count = reviewgroups.Count()
+
+                            }).OrderByDescending(x => x.Count);
+                return list.ToList();
+            }
+        }
     }
 }
 
